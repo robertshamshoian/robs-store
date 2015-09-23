@@ -1,0 +1,39 @@
+
+
+  <h1 id="productHead">
+    Products 
+<!--     <a href="/products/create" class="btn btn-default">
+      <span class="glyphicon glyphicon-plus"></span> 
+      New product
+    </a> -->
+   
+  </h1>
+
+<div class="jumbotron text-center" ng-show="product.processing">
+  <span class="glyphicon glyphicon-repeat spinner"></span>
+  <p>Loading products...</p>
+</div>
+  
+<form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+         <input type="text" ng-model="filter" placeholder="search...">
+      </div>      
+    </div>
+</form>
+
+<div class="row"  ng-show="product.products">
+  <div class="col-md-3" ng-repeat="item in product.products | filter: filter | orderBy:'-price'">
+    <div class="thumbnail"> <a ng-href="/products/{{ item._id }}" >
+      <img src="{{ item.thumbnail }}" alt="...">
+    </a>
+      <div class="caption">
+        <h5><a ng-href="/products/{{ item._id }}">{{ item.name }}</a> <small>by {{ item.brand }}</small> <p><small class="pull-right">{{ item.price | currency }}</small></p></h5>
+<!--         <p> 
+          <a href="#" ng-click="product.deleteProduct(item._id)" class="btn btn-primary">Delete</a>
+        </p> -->
+      </div>
+    </div>
+  </div>
+</div>

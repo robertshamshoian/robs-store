@@ -1,0 +1,17 @@
+<div class="jumbotron">
+	<h1 class="text-center">Welcome to my Store</h1>
+
+	<div ng-if="!main.loggedIn" class="text-center">
+		<p >Login to do some shopping!</p>
+		<a href="/login" class="btn btn-primary">Login</a>
+	</div>
+
+	<div ng-if="main.loggedIn">
+		<p>You can look through the products, filter by product or brand, and even click into them for more details! Inside the product page you can write a review of the product.</p>
+			<p>This is version 1.0 of my store, in the next version I will add the ability to add a product to a cart and then make an order.</p>
+		<div class="text-center">
+		<a href="/products" class="btn btn-primary">View Products</a>
+	</div>
+	</div>
+
+</div>

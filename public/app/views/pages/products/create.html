@@ -1,0 +1,67 @@
+<div class="page-header">
+	<h1>Create product</h1>
+
+</div>
+
+<form class="form-horizontal" ng-submit="product.saveProduct()">
+	
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" ng-model="product.productData.name">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">decription</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" ng-model="product.productData.description">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">price</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" ng-model="product.productData.price">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Thumbnail URL</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" ng-model="product.productData.thumbnail">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Image URL</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" ng-model="product.productData.image">
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Brand</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" ng-model="product.productData.brand">
+		</div>
+	</div>
+
+	<div class="form-group">
+	<div class="col-sm-offset-2 col-sm-6">
+		<button type="submit" class="btn btn-success btn-lg btn-block">Create product</button>
+	</div>
+	</div>
+
+</form>
+
+<div class="row show-hide-message" ng-show="product.message">
+	<div class="col-sm-6 col-sm-offset-2">
+		
+		<div class="alert alert-info">
+			{{ product.message }}
+		</div>
+
+	</div>
+</div>

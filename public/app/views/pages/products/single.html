@@ -1,0 +1,47 @@
+<div class="page-header">
+    <h2>{{product.productData.name}} <small>by {{product.productData.brand}}</small>
+       <!--  <a href="#" ng-click="" class="btn btn-primary">Add to Cart</a>  -->
+        <em class="pull-right">{{product.productData.price | currency}}</em>
+    </h2>
+</div>
+    <!-- Image Gallery  -->
+    <div class="col-md-2">
+    	<img id="fullImage" ng-src="{{ product.productData.image }}"/>
+    </div>
+
+    <div class="col-md-3">
+    	<h5>Description</h5>
+    	<ul>{{product.productData.description}}</ul>
+    </div>
+            <!-- form to add review to the list -->
+
+
+     <div class="col-md-4">
+        <h5>Reviews</h5>
+        <ul>
+            <li ng-repeat="review in product.reviews | orderBy:'-date'">
+
+                <blockquote>
+                    <strong>{{review.rating}} Stars</strong>
+                     - {{review.body}}
+                    <cite class="clearfix">—{{review.author}} on {{review.date | date}}</cite>
+                </blockquote>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="col-md-3">
+     <form class="form-inline" ng-submit="product.saveReview(main.user.name)">
+        <h5>Write a Review!</h5>
+        <select ng-model="product.reviewData.rating" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" placeholder="-Rate the Product-" required>
+            <option value="">-Stars-</option>
+        </select>
+        <input type="text" class="form-control" placeholder="What did you think?" ng-model="product.reviewData.body" required>
+        <button type="submit" class="btn btn-success" id="reviewButton">Add Review</button>
+    </form>
+    </div> 
+
+
+
